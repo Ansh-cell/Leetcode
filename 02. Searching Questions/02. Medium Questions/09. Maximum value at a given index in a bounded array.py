@@ -32,3 +32,47 @@ class Solution:
         return totalSum - partialSum
 
     # Time Complexity: O(logn), Space Complexity: O(1)
+
+    # Second Solution: same time and space complexity
+
+    # class Solution(object):
+    #     def maxValue(self, n, index, maxSum):
+    #         """
+    #         :type n: int
+    #         :type index: int
+    #         :type maxSum: int
+    #         :rtype: int
+    #         """
+    #
+    #         start = 1
+    #         end = maxSum
+    #         answer = 0
+    #         while start <= end:
+    #
+    #             mid = start + (end - start) // 2
+    #
+    #             Element_on_left = index
+    #             if Element_on_left < 0:
+    #                 Element_on_left = 0
+    #             Element_on_right = (n - 1) - index
+    #
+    #             left_sum = self.sum_on_two_sides(Element_on_left, mid - 1)
+    #             right_sum = self.sum_on_two_sides(Element_on_right, mid - 1)
+    #
+    #             if mid + left_sum + right_sum <= maxSum:
+    #                 answer = max(answer, mid)
+    #                 start = mid + 1
+    #             else:
+    #                 end = mid - 1
+    #
+    #         return answer
+    #
+    #     def sum_on_two_sides(self, element, val):
+    #         val_sum_of_element = val * (val + 1) / 2
+    #         remaining_sum = val - element
+    #         if remaining_sum < 0:
+    #             return val_sum_of_element + abs(remaining_sum)
+    #         else:
+    #             out_of_bound_sum = remaining_sum * (remaining_sum + 1) / 2
+    #             return val_sum_of_element - out_of_bound_sum
+
